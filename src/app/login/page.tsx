@@ -10,7 +10,7 @@ export default function Home() {
   
   if(status === 'authenticated')
   return(
-    redirect('/dashboard')
+    redirect('/painel')
   )
 
   if(status === 'loading')
@@ -46,7 +46,7 @@ export default function Home() {
 
           <div className="flex flex-col gap-3">
             <Button onClick={(e)=>{e.preventDefault();console.log(process.env.NEXTAUTH_URL)}} type="submit" className="min-w-[180px] bg-[rgb(127,90,240)] hover:bg-[rgba(255,255,255,0.8)]">Entrar</Button>
-            <Button onClick={()=>signIn('google', { callbackUrl: '/dashboard' })} className="min-w-[180px] hover:bg-[rgb(127,90,240)] bg-[rgba(255,255,255,0.8)]" leftIcon={<FcGoogle/>}>Continue com o Google</Button>
+            <Button onClick={()=>signIn('google', { callbackUrl: '/painel' })} className="min-w-[180px] hover:bg-[rgb(127,90,240)] bg-[rgba(255,255,255,0.8)]" leftIcon={<FcGoogle/>}>Continue com o Google</Button>
           </div>
 
       </form>

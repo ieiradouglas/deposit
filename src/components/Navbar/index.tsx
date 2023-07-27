@@ -31,11 +31,11 @@ interface Props {
 const Links = [
   {
     nome:'Painel', 
-    href:'/'
+    href:'/painel'
   },
   {
     nome:'Estoque',
-    href:'#'
+    href:'/estoque'
   }
 ]
 

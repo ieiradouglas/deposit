@@ -1,6 +1,6 @@
 
 import {Providers} from '../../components/Providers' 
-import Navbar from '../../components/Navbar'
+import Navbar from '../../components/Navbar'         
 
 export const metadata = {
   title: 'Deposit - Dashboard',
@@ -16,7 +16,7 @@ export default function RootLayout({
     <html lang="pt_BR">
       <body>
         <Providers>
-          <Navbar/>
+          <Navbar/> 
           {children}
         </Providers>
       </body>
