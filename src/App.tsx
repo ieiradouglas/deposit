@@ -1,8 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Provider } from "@/components/ui/provider";
 import { lazy, Suspense, PropsWithChildren } from "react";
 
 //Importação das páginas...
 const MenuBar = lazy(() => import("./components/MenuBar"));
+const Login = lazy(() => import("./pages/Login"));
 const Inicio = lazy(() => import("./pages/Inicio"));
 
 const LayoutComMenu = ({ children }: PropsWithChildren) => (
@@ -20,11 +22,17 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: (
-      <Suspense fallback={<div>Carregando...</div>}>
-        <LayoutComMenu>
-          <Inicio />
-        </LayoutComMenu>
-      </Suspense>
+      <LayoutSemMenu>
+        <Login />
+      </LayoutSemMenu>
+    ),
+  },
+  {
+    path: "/inicio",
+    element: (
+      <LayoutComMenu>
+        <Inicio />
+      </LayoutComMenu>
     ),
   },
 ]);
@@ -32,7 +40,11 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
-      <RouterProvider router={router} />
+      <Provider>
+        <Suspense fallback={<div>Carregando...</div>}>
+          <RouterProvider router={router} />
+        </Suspense>
+      </Provider>
     </>
   );
 }
